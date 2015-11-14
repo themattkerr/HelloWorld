@@ -37,12 +37,12 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="textInput">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>310</y>
-      <width>251</width>
+      <x>50</x>
+      <y>340</y>
+      <width>291</width>
       <height>71</height>
      </rect>
     </property>
