@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <sstream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +17,14 @@ MainWindow::~MainWindow()
 void MainWindow::on_pressTheRedButton_clicked()
 {
     ui->textBrowser->setPlainText("Hello World");
+    twoNumbers = "";
+    float x = .2;
+    otherNumber << x << 0;
+    std::string output;
+    otherNumber >> output;
+    QString y = QString::fromStdString(output);
+    ui->textBrowser->setPlainText(y);
+
 
    // ui->textBrowser->setPlainText();
 }
@@ -23,4 +32,21 @@ void MainWindow::on_pressTheRedButton_clicked()
 void MainWindow::on_plainTextEdit_textChanged()
 {
     ui->textBrowser->setPlainText("You changed the text in the box");
+}
+
+void MainWindow::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
+{
+/*
+    twoNumbers.append(arg1);
+    twoNumbers.append(" ");
+    twoNumbers.append(arg2);
+  */
+    QString one = QString::number(arg1,10);
+    QString two = QString::number(arg2,10);
+    one.append(" ");
+    one.append(two);
+
+    twoNumbers.append(" <|> ");
+    twoNumbers.append(one);
+  ui->textBrowser->setPlainText(twoNumbers);
 }
