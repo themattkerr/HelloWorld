@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "popupdialog.h"
 #include <sstream>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -24,7 +26,7 @@ void MainWindow::on_pressTheRedButton_clicked()
     otherNumber >> output;
     QString y = QString::fromStdString(output);
     ui->textBrowser->setPlainText(y);
-
+    ui->textBrowser->setPlainText(QString::number((sX.b),10));
 
    // ui->textBrowser->setPlainText();
 }
@@ -49,4 +51,13 @@ void MainWindow::on_lineEdit_cursorPositionChanged(int arg1, int arg2)
     twoNumbers.append(" <|> ");
     twoNumbers.append(one);
   ui->textBrowser->setPlainText(twoNumbers);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
+    test *y =&sX;
+    popUpDialog *display = new popUpDialog(this, y);
+    display->exec();
+
 }

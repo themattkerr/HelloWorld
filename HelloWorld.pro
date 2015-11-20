@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    popupdialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    popupdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    popupdialog.ui
