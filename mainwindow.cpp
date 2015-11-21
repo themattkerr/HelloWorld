@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "popupdialog.h"
+#include <QTextStream>
 #include <sstream>
+#include <qfile.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -59,5 +61,18 @@ void MainWindow::on_pushButton_clicked()
     test *y =&sX;
     popUpDialog *display = new popUpDialog(this, y);
     display->exec();
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    using namespace std;
+    QString filename = "test.txt";
+    QFile file (filename);
+    if (file.open(QIODevice::ReadWrite))
+    {
+        QTextStream stream (&file);
+        stream << ui->lineEdit->text() << endl;
+    }
 
 }
